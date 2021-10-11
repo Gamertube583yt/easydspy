@@ -1,4 +1,5 @@
 from art import *
+import datetime
 import random
 import discord
 
@@ -42,10 +43,23 @@ class Main:
 		self.currnick = ctx.author.nick
 		await self.user.edit(nick=self.newnick)
 		print(f'[LOG] Successfully changed nick from {self.currnick} to {self.newnick}')
-	def Embed(self, ctx, text='', description=''):
+	def Embed(self, text='', description=''):
 		self.text = text
 		self.description = description
 		return discord.Embed(
         title = self.text,
         description = self.description,
     )
+	class GetTime:
+		def Hours(self):
+			return datetime.datetime.now().strftime('%H')
+		def Minutes(self):
+			return datetime.datetime.now().strftime('%M')
+		def Seconds(self):
+			return datetime.datetime.now().strftime('%S')
+		def Year(self):
+			return datetime.datetime.now().strftime('%y')
+		def Month(self):
+			return datetime.datetime.now().strftime('%m')
+		def Day(self):
+			return datetime.datetime.now().strftime('%d')
