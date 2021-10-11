@@ -36,3 +36,10 @@ class Main:
 		role = discord.utils.get(self.user.guild.roles, name=self.rolename)
 		await user.remove_roles(role)
 		print(f'[LOG] Successfully removed role {self.rolename} to {user.name}')
+	async def ChangeNick(self, ctx, user, newnick):
+		self.ctx = ctx
+		self.user = user
+		self.newnick = newnick
+		self.currnick = ctx.author.nick
+		await self.user.edit(nick=self.newnick)
+		print(f'[LOG] Successfully changed nick from {self.currnick} to {self.newnick}')
