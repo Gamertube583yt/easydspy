@@ -11,7 +11,13 @@ class Main:
 		self.count = count
 		for i in range(count):
 			await ctx.send(text)
-		print('-'*10 + f'\n[LOG] Spam with:\nTEXT: {self.text}\nCOUNT: {self.count}\nCTX: {self.ctx}\nsuccessfully ended!\n' + '-'*10)
+		print('-'*10 + f'\
+[LOG] Spam with:\
+TEXT: {self.text}\
+COUNT: {self.count}\
+CTX: {self.ctx}\
+successfully ended!\
+' + '-'*10)
 	def Random(self, min, max):
 		self.min = min
 		self.max = max
@@ -43,3 +49,10 @@ class Main:
 		self.currnick = ctx.author.nick
 		await self.user.edit(nick=self.newnick)
 		print(f'[LOG] Successfully changed nick from {self.currnick} to {self.newnick}')
+	def Embed(self, ctx, text='', description=''):
+		self.text = text
+		self.description = description
+		return discord.Embed(
+        title = self.text,
+        description = self.description,
+    )
