@@ -1,4 +1,5 @@
 from art import *
+from googletrans import Translator
 import datetime
 import random
 import discord
@@ -63,3 +64,6 @@ class Main:
 			return datetime.datetime.now().strftime('%m')
 		def Day(self):
 			return datetime.datetime.now().strftime('%d')
+	class Users:
+		def GetCount(self, ctx):
+			return ctx.guild.member_count
