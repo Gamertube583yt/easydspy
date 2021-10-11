@@ -9,6 +9,11 @@
 import main
 ```
 ### 3 Step:
+- You need to install module `art`:
+```python
+pip install art
+```
+### 4 Step:
 - Then we go to code in your **discord bot** file, assign class variable:
 ```python
 cmd = main.Main()
