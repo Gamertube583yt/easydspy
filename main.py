@@ -67,3 +67,5 @@ class Main:
 	class Users:
 		def GetCount(self, ctx):
 			return ctx.guild.member_count
+	def BotServers(self, bot):
+		return bot.guilds
