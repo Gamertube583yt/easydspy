@@ -11,12 +11,12 @@ class Main:
 		self.count = count
 		for i in range(count):
 			await ctx.send(text)
-		print('-'*10 + f'\
-[LOG] Spam with:\
-TEXT: {self.text}\
-COUNT: {self.count}\
-CTX: {self.ctx}\
-successfully ended!\
+		print('-'*10 + f'\\
+[LOG] Spam with:\\
+TEXT: {self.text}\\
+COUNT: {self.count}\\
+CTX: {self.ctx}\\
+successfully ended!\\
 ' + '-'*10)
 	def Random(self, min, max):
 		self.min = min
