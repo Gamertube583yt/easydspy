@@ -5,6 +5,7 @@ import datetime
 import random
 import requests
 import discord
+import json
 
 class Main:
 	def __init__(self):
@@ -73,3 +74,26 @@ class Main:
 			temp = await client.find(self.city)
 			return round((temp.current.temperature - 32) * 5/9)
 			await client.close()
+	class UserDatabase:
+		def CreateUser(self, id, data):
+			self.id = id
+			self.data = data
+			with open(f'users/{self.id}.json', 'w') as f:
+				f.write(self.data)
+		def SetValue(self, id, data, newvalue):
+			self.id = id
+			self.data = data
+			self.newvalue = newvalue
+			f = open('users/' + str(self.id)+ '.json', 'r+')
+			data = json.load(f)
+			f.seek(0)
+			r = f.read()
+			f.truncate(0)
+			f.write(r.replace(data[self.data], self.newvalue))
+		def GetValue(self, id, value):
+			self.id = id
+			self.value = value
+			f = open('users/' + str(self.id)+ '.json')
+			data = json.load(f)
+			d = data[self.value]
+			return d
