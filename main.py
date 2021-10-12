@@ -9,6 +9,7 @@ import discord
 class Main:
 	def __init__(self):
 		print('[LOG] Module EasyBotGame initalized successfully and successfully updated!')
+		print('TEST краш!!!')
 	def Random(self, min, max):
 		self.min = min
 		self.max = max
