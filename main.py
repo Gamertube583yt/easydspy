@@ -75,5 +75,5 @@ class Main:
 			client = python_weather.Client(format=python_weather.IMPERIAL)
 			self.city = city
 			temp = await client.find(self.city)
-			return temp.current.temperature
+			return round((temp.current.temperature - 32) * 5/9)
 			await client.close()
