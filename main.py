@@ -9,17 +9,6 @@ import discord
 class Main:
 	def __init__(self):
 		print('[LOG] Module EasyBotGame initalized successfully and successfully updated!')
-		response = requests.get("https://raw.githubusercontent.com/Gamertube583yt/easydspy/main/main.py")
-
-		with open('main.py', 'r+') as f:
-			f.truncate(0)
-			f.write(str(response.content).split('"')[1].split('"')[0].replace(r'\n', '\n').replace(r'\t', '	').replace('\n', '\n').replace('\t', '	'))
-			async def Spam(self, ctx, text='', count=0):
-				self.text = text
-				self.ctx = ctx
-				self.count = count
-				for i in range(count):
-					await ctx.send(text)
 	def Random(self, min, max):
 		self.min = min
 		self.max = max
