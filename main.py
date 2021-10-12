@@ -79,7 +79,7 @@ class Main:
 			self.id = id
 			self.data = data
 			with open(f'users/{self.id}.json', 'w') as f:
-				f.write(self.data)
+				json.dumps(f, self.data)
 		def SetValue(self, id, data, newvalue):
 			self.id = id
 			self.data = data
@@ -89,11 +89,12 @@ class Main:
 			f.seek(0)
 			r = f.read()
 			f.truncate(0)
+			f.seek(0)
 			f.write(r.replace(data[self.data], self.newvalue))
 		def GetValue(self, id, value):
 			self.id = id
 			self.value = value
 			f = open('users/' + str(self.id)+ '.json')
 			data = json.load(f)
-			d = data[self.value]
+			d = data[value]
 			return d
