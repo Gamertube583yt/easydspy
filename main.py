@@ -1,5 +1,6 @@
 from art import *
 from googletrans import Translator
+import python_weather
 import datetime
 import random
 import discord
@@ -69,3 +70,10 @@ class Main:
 			return ctx.guild.member_count
 	def BotServers(self, bot):
 		return bot.guilds
+	class Weather:
+		async def GetTemperature(self, city):
+			client = python_weather.Client(format=python_weather.IMPERIAL)
+			self.city = city
+			temp = await client.find(self.city)
+			return temp.current.temperature
+			await client.close()
