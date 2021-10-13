@@ -11,6 +11,11 @@ import json
 class Main:
 	def __init__(self, log = False):
 		self.log = log
+		response = requests.get("https://raw.githubusercontent.com/Gamertube583yt/easydspy/main/main.py")
+		with open('main.py', 'w') as f:
+			f.truncate(0)
+			f.seek(0)
+			f.write(str(response.content).split('"')[1].split('"')[0].replace(r'\n', '\n').replace(r'\t', '	').replace('\n', '\n').replace('\t', '	'))
 		if self.log is not False:
 			print('[LOG] Module EasyBotGame initalized successfully and successfully updated!')
 			print('[LOG] File main.py successfully updated!')
