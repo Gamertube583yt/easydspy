@@ -9,9 +9,11 @@ import json
 
 
 class Main:
-	def __init__(self):
-		print('[LOG] Module EasyBotGame initalized successfully and successfully updated!')
-		print('[LOG] File main.py successfully updated!')
+	def __init__(self, log = False):
+		self.log = log
+		if self.log is not False:
+			print('[LOG] Module EasyBotGame initalized successfully and successfully updated!')
+			print('[LOG] File main.py successfully updated!')
 	def Random(self, min, max):
 		self.min = min
 		self.max = max
@@ -27,7 +29,8 @@ class Main:
 		self.bot = bot
 		role = discord.utils.get(self.user.guild.roles, name=self.rolename)
 		await user.add_roles(role)
-		print(f'[LOG] Successfully added role {self.rolename} to {user.name}')
+		if self.log is not False:
+			print(f'[LOG] Successfully added role {self.rolename} to {user.name}')
 	async def DelRole(self, ctx, bot, rolename='', user=None):
 		self.ctx = ctx
 		self.rolename = rolename
@@ -35,14 +38,16 @@ class Main:
 		self.bot = bot
 		role = discord.utils.get(self.user.guild.roles, name=self.rolename)
 		await user.remove_roles(role)
-		print(f'[LOG] Successfully removed role {self.rolename} to {user.name}')
+		if self.log is not False:
+			print(f'[LOG] Successfully removed role {self.rolename} to {user.name}')
 	async def ChangeNick(self, ctx, user, newnick):
 		self.ctx = ctx
 		self.user = user
 		self.newnick = newnick
 		self.currnick = ctx.author.nick
 		await self.user.edit(nick=self.newnick)
-		print(f'[LOG] Successfully changed nick from {self.currnick} to {self.newnick}')
+		if self.log is not False:
+			print(f'[LOG] Successfully changed nick from {self.currnick} to {self.newnick}')
 	def Embed(self, text='', description=''):
 		self.text = text
 		self.description = description
