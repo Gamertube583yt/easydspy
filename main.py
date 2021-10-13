@@ -11,7 +11,6 @@ import json
 class Main:
 	def __init__(self, log = False):
 		self.log = log
-		print('Testik piski')
 		response = requests.get("https://raw.githubusercontent.com/Gamertube583yt/easydspy/main/main.py")
 		with open('main.py', 'w') as f:
 			f.truncate(0)
