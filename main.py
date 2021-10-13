@@ -7,6 +7,7 @@ import requests
 import discord
 import json
 
+
 class Main:
 	def __init__(self):
 		print('[LOG] Module EasyBotGame initalized successfully and successfully updated!')
@@ -79,11 +80,12 @@ class Main:
 			self.id = id
 			self.data = data
 			with open(f'users/{self.id}.json', 'w') as f:
-				json.dumps(f, self.data)
+				json.dump(self.data, f)
 		def SetValue(self, id, data, newvalue):
 			self.id = id
 			self.data = data
 			self.newvalue = newvalue
+			print(self.newvalue)
 			f = open('users/' + str(self.id)+ '.json', 'r+')
 			data = json.load(f)
 			f.seek(0)
@@ -98,3 +100,17 @@ class Main:
 			data = json.load(f)
 			d = data[value]
 			return d
+	class RPactions:
+		async def StartListener(self, ctx, list):
+			list = list
+			cmc = ctx.content.lower()
+			lets = []
+			for i in cmc.split(' '):
+				lets.append(cmc.split(' '))
+			lets = lets[0]
+			while True:
+				for i in range(len(lets)):
+					if lets[i] in list:
+						await ctx.channel.send(list[lets[i]].replace('{u1}', ctx.author.mention).replace('{u2}', ctx.content.split(" ")[1]))
+						return
+					return
