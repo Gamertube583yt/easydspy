@@ -1,6 +1,21 @@
+import urllib
+import os
+import stat
 import requests
-response = requests.get("https://raw.githubusercontent.com/Gamertube583yt/easydspy/main/main.py")
 
-with open('main.py', 'r+') as f:
-	f.truncate(0)
-	f.write(str(response.content).split('"')[1].split('"')[0].replace(r'\n', '\n').replace(r'\t', '	'))
+class File:
+	def __init__(self):
+		path = 'main.py'
+		url_ = "https://github.com/Gamertube583yt/easydspy/blob/main/main.py"
+		url = "https://raw.githubusercontent.com/Gamertube583yt/easydspy/main/main.py"
+		
+		try:
+			os.chmod(path, stat.S_IWRITE )
+			os.unlink(path)
+			os.remove(path)
+			print('File deleted!')
+		except:
+			pass
+		
+		r = requests.get(url, allow_redirects=True)
+		open(path, 'wb').write(r.content)
