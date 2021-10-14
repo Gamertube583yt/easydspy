@@ -32,7 +32,7 @@ class Main:
 		self.rolename = rolename
 		self.user = user
 		self.bot = bot
-		role = discord.utils.get(user.server.roles, name=self.rolename)
+		role = discord.utils.get(self.user.guild.roles, name=self.rolename)
 		await user.add_roles(role)
 		if self.log is not False:
 			print(f'[LOG] Successfully added role {self.rolename} to {user.name}')
@@ -41,7 +41,7 @@ class Main:
 		self.rolename = rolename
 		self.user = user
 		self.bot = bot
-		role = discord.utils.get(user.server.roles, name=self.rolename)
+		role = discord.utils.get(self.user.guild.roles, name=self.rolename)
 		await user.remove_roles(role)
 		if self.log is not False:
 			print(f'[LOG] Successfully removed role {self.rolename} to {user.name}')
