@@ -17,11 +17,16 @@ class Main:
 	def Random(self, min, max):
 		self.min = min
 		self.max = max
-		return random.randint(self.min, self.max)
+		r = random.randint(self.min, self.max)
+		return r
+		if self.log is not False:
+			print(f'[LOG] Randint equals {r}')
 	async def TextToArt(self, ctx, text=''):
 		self.text = text
 		self.ctx = ctx
 		await ctx.send(f'```{text2art(text)}```')
+		if self.log is not False:
+			print(f'[LOG] Successfully TextToArt\'ed "{text}"')
 	async def AddRole(self, ctx, bot, rolename='', user=None):
 		self.ctx = ctx
 		self.rolename = rolename
