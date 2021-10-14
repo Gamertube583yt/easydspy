@@ -14,7 +14,6 @@ class Main:
 		if self.log is not False:
 			print('[LOG] Module EasyBotGame initalized successfully and successfully updated!')
 			print('[LOG] File main.py successfully updated!')
-		print('AYE '*1000)
 	def Random(self, min, max):
 		self.min = min
 		self.max = max
