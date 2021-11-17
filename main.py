@@ -18,9 +18,9 @@ class Main:
 		self.min = min
 		self.max = max
 		r = random.randint(self.min, self.max)
-		return r
 		if self.log is not False:
 			print(f'[LOG] Randint equals {r}')
+		return r
 	async def TextToArt(self, ctx, text=''):
 		self.text = text
 		self.ctx = ctx
